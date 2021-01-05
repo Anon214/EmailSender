@@ -61,6 +61,13 @@ public class JavaMail {
 			subject = subject.replaceAll("LASTNAME", excelArrayNew[j + 1]);
 			body = body.replaceAll("FIRSTNAME", excelArrayNew[j]);
 			body = body.replaceAll("LASTNAME", excelArrayNew[j + 1]);
+			if (i > 0) {
+				subject = subject.replaceAll(excelArrayNew[j - 3], excelArrayNew[j]);
+				subject = subject.replaceAll(excelArrayNew[j - 2], excelArrayNew[j + 1]);
+				body = body.replaceAll(excelArrayNew[j - 3], excelArrayNew[j]);
+				body = body.replaceAll(excelArrayNew[j - 2], excelArrayNew[j + 1]);
+			}
+			
 			mimeMessage.setSubject(subject);
 			mimeMessage.setText(body);
 			
